@@ -48,7 +48,7 @@ openssl genrsa -out cert-key.pem 4096
 ### 5. Generate a certificate of signed request.
 
 The certificate needs to be signed by a CA, else it won't be valid.
-The -subj can be anything, domain,ip,etc
+The -subj can be anything, domain,ip,etc in the format ```"/CN=value,..."```
 
 output file: cert.csr
 
@@ -75,7 +75,7 @@ Output: ```cert.pem```
 
 
 ```bash
-openssl x509 -req -sha256 -days 3650 -in cert.csr -CA ca.pem -CAkey ca-key.pem -out cert.pem -extfile extfile.cnf -CAcrateserial
+openssl x509 -req -sha256 -days 3650 -in cert.csr -CA ca.pem -CAkey ca-key.pem -out cert.pem -extfile extfile.cnf -CAcreateserial
 ```
 
 ### 8. Combine the CA and certificate files into a fullchain
@@ -96,7 +96,7 @@ cat ca.pem >> ./fullchain.pem
 - 
 - 
 
-You can check out [Here]('')  for some
+You can check out [Here]()  for some
 
 
 
